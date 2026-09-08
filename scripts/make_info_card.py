@@ -20,7 +20,7 @@ ROWS = [
     ("Frontend", "HTML/CSS/JS, React, Next.js, TS, Tailwind"),
     ("Backend", "PHP, Node.js, WordPress, MySQL, REST API"),
     ("Extras", "Git/GitHub, SEO, AI tools (ChatGPT, Claude, MJ)"),
-    ("Highlight", "5+ years working with AI"),
+    ("Highlight", "5+ years building websites"),
 ]
 
 WIDTH = 490
@@ -34,6 +34,7 @@ TITLE_BG = "#161b22"
 BORDER = "#30363d"
 KEY_COLOR = "#39d353"   # зелений, як GitHub-акцент
 VALUE_COLOR = "#c9d1d9"
+ACCENT = "#7c3aed"      # фіолетовий акцент, наскрізний з browser-mockup.svg
 DOT_COLORS = ["#ff5f56", "#ffbd2e", "#27c93f"]  # macOS-стиль кружечків у шапці
 
 STATIC = os.environ.get("STATIC") == "1"
@@ -85,13 +86,13 @@ def build_svg() -> str:
     # ім'я великим шрифтом одразу під шапкою
     name_y = TITLE_H + PADDING
     svg.append(
-        f'<text x="{PADDING}" y="{name_y:.0f}" fill="{VALUE_COLOR}" '
+        f'<text x="{PADDING}" y="{name_y:.0f}" fill="{ACCENT}" '
         f'font-size="17" font-weight="bold" class="row" '
         f'style="animation-delay:0.05s">{escape_xml(NAME)}</text>'
     )
     svg.append(
         f'<line x1="{PADDING}" y1="{name_y + 10}" x2="{WIDTH - PADDING}" y2="{name_y + 10}" '
-        f'stroke="{BORDER}"/>'
+        f'stroke="{ACCENT}" stroke-width="2" stroke-opacity="0.6"/>'
     )
 
     # key: value рядки
